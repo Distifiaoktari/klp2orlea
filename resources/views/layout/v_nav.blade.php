@@ -10,7 +10,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i> Pelanggan</a></li>
+            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="/pelanggan"><i class="fa fa-circle-o"></i> Pelanggan</a></li>
             <li class="{{request()->is('/') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i> Barberman</a></li>
             <li class="{{request()->is('/') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i> Paket Barber</a></li>
           </ul>

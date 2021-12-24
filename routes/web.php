@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DataAdminController;
+use App\Http\Controllers\PelangganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,18 @@ use App\Http\Controllers\DataAdminController;
 Route::get('/', function () { return view('welcome'); });
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/dataadmin', [DataAdminController::class, 'index']);
- 
+
+//pelanggan
+Route::get('/pelanggan', [PelangganController::class, 'index']);
+Route::get('/pelanggan/create', [PelangganController::class, 'create']);
+Route::post('/pelanggan', [PelangganController::class, 'store']);
+Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit']);
+Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update');
+//Route::put('/pelanggan/{id}','PelangganController@update')->name('pelanggan.update');
+Route::get('/pelanggan/{id}/delete', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/datapelanggan', [App\Http\Controllers\PelangganController::class, 'index']);
