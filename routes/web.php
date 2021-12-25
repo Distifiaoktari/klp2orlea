@@ -17,8 +17,14 @@ use App\Http\Controllers\DataAdminController;
 
 Route::get('/', function () { return view('welcome'); });
 Route::get('/home', [HomeController::class, 'index']);
-Route::get('/dataadmin', [DataAdminController::class, 'index']);
+Route::get('/dataadmin', [DataAdminController::class, 'index'])->name('dataadmin');
  
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dataadmin/add', [DataAdminController::class, 'add']);
+Route::post('/dataadmin/insert', [DataAdminController::class, 'insert']);
+Route::get('/dataadmin/detail/{id}', [DataAdminController::class, 'detail']);
+Route::get('/dataadmin/edit/{id}', [DataAdminController::class, 'edit']);
+Route::post('/dataadmin/update/{id}', [DataAdminController::class, 'update']);
+Route::get('/dataadmin/delete/{id}', [DataAdminController::class, 'delete']);
