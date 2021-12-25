@@ -83,7 +83,7 @@ class DataAdminController extends Controller
        $data = [
            'name' => request()->name,
            'email' => request()->email,
-           'password' => request()->password,
+           'password' => Hash::make(request()->password),
            'updated_at' => Carbon::now(),
        ];
        $this->DataAdminModel->editData($id, $data);
