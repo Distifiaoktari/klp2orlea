@@ -6,6 +6,7 @@ use App\Http\Controllers\DataAdminController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\BarbermanController;
 use App\Http\Controllers\PaketBarberController;
+use App\Http\Controllers\PemesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,10 @@ Route::post('/paketbarber', [PaketBarberController::class, 'store']);
 Route::get('/paketbarber/{id}/edit', [PaketBarberController::class, 'edit']);
 Route::put('/paketbarber/{id}', [PaketBarberController::class, 'update'])->name('paketbarber.update');
 Route::get('/paketbarber/{id}/delete', [PaketBarberController::class, 'destroy'])->name('paketbarber.destroy');
+
+//pemesanan
+Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
+Route::get('/pemesanan/delete/{id}', [PemesananController::class, 'delete']);
 
 Auth::routes();
 

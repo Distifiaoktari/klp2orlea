@@ -11,11 +11,11 @@
           </a>
           <ul class="treeview-menu">
             <li class="{{request()->is('/') ? 'active' : '' }}"><a href="/pelanggan"><i class="fa fa-circle-o"></i> Pelanggan</a></li>
-            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i> Barberman</a></li>
-            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i> Paket Barber</a></li>
+            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="/barberman"><i class="fa fa-circle-o"></i> Barberman</a></li>
+            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="/paketbarber"><i class="fa fa-circle-o"></i> Paket Barber</a></li>
           </ul>
         </li>
-        <li class="{{request()->is('/') ? 'active' : '' }}"><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Pemesanan</span></a></li>
+        <li class="{{request()->is('/') ? 'active' : '' }}"><a href="/pemesanan"><i class="fa fa-book"></i> <span>Pemesanan</span></a></li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Cetak Laporan</span>
