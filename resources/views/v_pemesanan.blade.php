@@ -3,7 +3,7 @@
 @section('title','Pemesanan')
 
 @section('content')
-    <a href="/pemesanan/add" class="btn btn-primary btn-sm">Add</a> <br>
+    <a href="/pemesanan/create" class="btn btn-primary btn-sm">Add</a> <br>
     @if(session('pesan'))
     <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -20,6 +20,7 @@
                 <th>Barberman</th>
                 <th>Tanggal Order</th>
                 <th>Status Bayar</th>
+                <!-- <th>Total Harga</th> -->
                 <th>Action</th>
                 
             </tr>
@@ -32,10 +33,20 @@
             <td> {{ $data->nama_pelanggan }} </td>
             <td> {{ $data->nama_barberman }} </td>
             <td> {{ $data->tanggal_order }} </td>
-            <td> {{ $data->status_bayar }} </td>
+            @if($data->status_bayar == "0")
+            <td> <a href="/pemesanan/bayar/{{ $data->id }}" class="btn btn-sm btn-warning">Belum Bayar</a> </td>
+            @else
+            <td> Sudah Bayar </td>
+@include('v_bayarpemesanan')
+            @endif
+            <!-- <td> $Jumlah = 0;
+                for(){
+                  Jumlah = Jumlah + $data->harga_paket
+                } </td> -->
             <td>
-                    <a href="/pemesanan/detail/{{ $data->id }}" class="btn btn-sm btn-warning">Detail</a>
-                    <a href="/pemesanan/edit/{{ $data->id }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="/detailpemesanan/create/{{ $data->id }}" class="btn btn-sm btn-warning">Paket</a>
+                    <a href="/pemesanan/{{ $data->id }}" class="btn btn-sm btn-warning">Detail</a>
+                    <a href="/pemesanan/{{ $data->id }}/edit" class="btn btn-sm btn-warning">Edit</a>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ $data->id }}">
                 Delete
               </button>
@@ -43,6 +54,7 @@
             
 </tr>
 @endforeach
+
     </tbody>
     </table>
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\BarbermanController;
 use App\Http\Controllers\LaporanPendapatanController;
 use App\Http\Controllers\PaketBarberController;
 use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\DetailPemesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,22 @@ Route::get('/paketbarber/{id}/delete', [PaketBarberController::class, 'destroy']
 //pemesanan
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
 Route::get('/pemesanan/delete/{id}', [PemesananController::class, 'delete']);
+Route::get('/pemesanan/{id}/edit', [PemesananController::class, 'edit']);
+Route::get('/pemesanan/bayar/{id}', [PemesananController::class, 'bayar']);
+Route::get('/pemesanan/paket/{id}', [PemesananController::class, 'paket']);
+Route::get('/pemesanan/add', [PemesananController::class, 'add']);
+Route::get('/pemesanan/create', [PemesananController::class, 'create']);
+Route::post('/pemesanan/insert', [PemesananController::class, 'insert']);
+Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
+Route::put('/pemesanan/{id}', [PemesananController::class, 'update'])->name('pemesanan.update');
+
+//detailpemesanan
+Route::get('/detailpemesanan', [DetailPemesananController::class, 'index'])->name('detailpemesanan');
+Route::get('/detailpemesanan/delete/{id}', [DetailPemesananController::class, 'delete']);
+Route::get('/detailpemesanan/add', [DetailPemesananController::class, 'add']);
+Route::get('/detailpemesanan/create/{id}', [DetailPemesananController::class, 'create']);
+Route::post('/detailpemesanan/insert', [DetailPemesananController::class, 'insert']);
+Route::get('/detailpemesanan/show', [DetailPemesananController::class, 'show']);
 
 //laporan pendapatan
 Route::get('/laporanpendapatan', [LaporanPendapatanController::class, 'index'])->name('laporanpendapatan');
