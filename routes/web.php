@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DataAdminController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\BarbermanController;
+use App\Http\Controllers\LaporanPendapatanController;
 use App\Http\Controllers\PaketBarberController;
 use App\Http\Controllers\PemesananController;
 
@@ -63,6 +64,12 @@ Route::get('/paketbarber/{id}/delete', [PaketBarberController::class, 'destroy']
 //pemesanan
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
 Route::get('/pemesanan/delete/{id}', [PemesananController::class, 'delete']);
+
+//laporan pendapatan
+Route::get('/laporanpendapatan', [LaporanPendapatanController::class, 'index'])->name('laporanpendapatan');
+Route::get('/laporanpendapatan/perbulan', [LaporanPendapatanController::class, 'pdfbulanan'])->name('laporanpendapatan.perbulan');
+Route::get('/laporanpendapatan/perhari', [LaporanPendapatanController::class, 'pdfharian'])->name('laporanpendapatan.perhari');
+
 
 Auth::routes();
 
