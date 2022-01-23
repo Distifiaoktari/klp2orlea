@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\models\PemesananModel;
-use App\models\DetailPemesananModel;
-use App\models\Pelanggan;
-use App\models\PaketBarber;
-use App\models\Barberman;
 
 class LaporanTransaksiController extends Controller
 {
@@ -34,7 +29,10 @@ class LaporanTransaksiController extends Controller
         ->get()
         ->toArray();
 
-        return view('transaksi/pdfperbulan', compact('tanggal'));
+        //return view('transaksi/pdfperbulan', compact('tanggal'));
+        
+        $pdf = PDF::loadView('transaksi.pdfperbulan', compact('tanggal'));
+        return $pdf->stream();
     }
     
     public function pdfharian()
@@ -68,6 +66,9 @@ class LaporanTransaksiController extends Controller
         ->get()
         ->toArray();
 
-        return view('transaksi/pdfperhari', compact('tanggal'));
+        //return view('transaksi/pdfperhari', compact('tanggal'));
+        
+        $pdf = PDF::loadView('transaksi.pdfperhari', compact('tanggal'));
+        return $pdf->stream();
     }
 }

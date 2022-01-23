@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>laporan perbulan</title>
+        <title>laporan pendapatan per bulan</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <style>
             table, th, td {

@@ -40,14 +40,16 @@ class LaporanPendapatanController extends Controller
     
     public function pdfharian()
     {
-        $tanggal = DB::table('pemesanan')
-        ->where('status_bayar', '=', 1)
-        ->select('tanggal_order', DB::raw('count(id)'))
-        ->groupBy('tanggal_order')
+        //$tanggal = DB::table('pemesanan')
+        //->where('status_bayar', '=', 1)
+        //->select('tanggal_order', DB::raw('count(id)'))
+        //->groupBy('tanggal_order')
         // ->distinct()
-        ->get()
-        ->toArray();
+        //->get()
+        //->toArray();
         
+        //---->
+
         // $banyaktransaksi = DB::table('pemesanan')  
         //     ->where('status_bayar', '=', 1)          
         //     ->select(DB::raw('count(id)'))
@@ -60,7 +62,23 @@ class LaporanPendapatanController extends Controller
 
         // $banyaktransaksi2 = DB::query('SELECT COUNT ( DISTINCT tanggal_order ) FROM pemesanan');
 
-        // return view('pendapatan/pdfperhari', compact('tanggal'));      
+        // return view('pendapatan/pdfperhari', compact('tanggal'));  
+        
+        //---> + total
+        $tanggal = DB::table('pemesanan')
+        ->where('status_bayar', '=', 1)       
+        ->select(DB::raw('pemesanan.tanggal_order AS tanggal_order'), 
+                DB::raw('count(detailpemesanan.pemesanan_id) AS id'), 
+                DB::raw('sum(paketbarber.harga_paket) AS total'))
+        ->leftJoin('detailpemesanan', 'detailpemesanan.pemesanan_id', '=', 'pemesanan.id')
+        ->leftJoin('paketbarber', 'detailpemesanan.paketbarber_id', '=' , 'paketbarber.id')
+        ->leftJoin('pelanggan', 'pelanggan.id', '=' , 'pemesanan.pelanggan_id')
+        ->leftJoin('barberman', 'barberman.id', '=' , 'pemesanan.barberman_id') 
+        ->groupBy('pemesanan.tanggal_order')      
+        ->orderBy('pemesanan.tanggal_order')
+        ->get()
+        ->toArray();
+
         $pdf = PDF::loadView('pendapatan.pdfperhari', compact('tanggal'));
         return $pdf->stream();
     }

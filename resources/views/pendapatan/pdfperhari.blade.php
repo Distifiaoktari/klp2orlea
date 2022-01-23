@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>laporan perhari</title>
+    <title>laporan pendapatan per hari</title>
     <style>
             table, th, td {
                     border: 1px solid black;
@@ -34,9 +34,9 @@
                 <td>{{ $no++ }}</td>
                 
                 <td>{{$tgl->{'tanggal_order'};}}</td>
-                <td>{{$tgl->{'count(id)'};}}</td>
+                <td>{{$tgl->{'id'};}}</td>
                 
-                <td>-</td>
+                <td>Rp {{$tgl->{'total'};}}</td>
                 <td>-</td>
             </tr>
             @endforeach
