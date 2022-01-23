@@ -35,7 +35,7 @@
                             <td>{{ $tgl->{'id'}; }}</td>          
                             <td>{{ $tgl->{'pelanggan'}; }}</td>          
                             <td>{{ $tgl->{'barberman'}; }}</td>                             
-                            <td>Rp -</td>
+                            <td>Rp {{ $tgl->{'total'}; }}</td>
                         </tr>
                         @endforeach
                         </tbody>
