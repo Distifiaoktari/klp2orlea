@@ -14,7 +14,7 @@
 </head>
 
 <body>
-        <center><h2>Laporan Transaksi Barbershop Per Hari</h2></center>
+        <center><h2>Laporan Transaksi Barbershop Per Bulan</h2></center>
        
         <table class="table table-bordered border-dark">
             <thead>
