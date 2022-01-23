@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LaporanPendapatanController extends Controller
@@ -18,7 +21,19 @@ class LaporanPendapatanController extends Controller
 
     public function pdfbulanan()
     {
-        return view('pendapatan/pdfperbulan');
+        $tanggal = DB::table('pemesanan')
+        ->where('status_bayar', '=', 1)
+        ->select(DB::raw('CONCAT (MONTHNAME(tanggal_order),"-",YEAR(tanggal_order)) new_date'),
+                  DB::raw('count(id)'))
+        // ->distinct()
+        ->groupby('new_date')
+        ->orderBy('tanggal_order')
+        ->get()
+        ->toArray();
+
+        
+        
+        return view('pendapatan/pdfperbulan', compact('tanggal'));
         // $data = Siswa::orderBy('nama')->get(); //ubah siswa nya dulu
         // $pdf = PDF::loadView('pendapatan.pdfperbulan', compact('data'));
         // return $pdf->stream();
@@ -26,9 +41,30 @@ class LaporanPendapatanController extends Controller
     
     public function pdfharian()
     {
-        return view('pendapatan/pdfperhari');
+        $tanggal = DB::table('pemesanan')
+        ->where('status_bayar', '=', 1)
+        ->select('tanggal_order', DB::raw('count(id)'))
+        ->groupBy('tanggal_order')
+        // ->distinct()
+        ->get()
+        ->toArray();
+        
+        // $banyaktransaksi = DB::table('pemesanan')  
+        //     ->where('status_bayar', '=', 1)          
+        //     ->select(DB::raw('count(id)'))
+        //     ->groupBy('tanggal_order')
+        //     ->get()
+        //     ->toArray();
+
+        
+
+
+        // $banyaktransaksi2 = DB::query('SELECT COUNT ( DISTINCT tanggal_order ) FROM pemesanan');
+
+        return view('pendapatan/pdfperhari', compact('tanggal'));      
+
         // $data = Siswa::orderBy('nama')->get(); //ubah siswa nya dulu
-        // $pdf = PDF::loadView('pendapatan.pdfperhari', compact('data'));
+        // $pdf = PDF::loadView('pendapatan.pdfperhari', compact('tanggal'));
         // return $pdf->stream();
     }
 }

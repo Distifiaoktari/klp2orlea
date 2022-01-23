@@ -8,8 +8,8 @@
         <tbody>
             <tr>
                 <!-- <th>Pilih Bulan</th> -->
-                <th>Pilih Tahunnya</th>
-                <th>Aksi</th>
+                <!-- <th>Pilih Tahunnya</th>
+                <th>Aksi</th> -->
             </tr>
             <tr>
                 <!-- <td>
@@ -29,14 +29,14 @@
                         <option value="12"> Desember </option>	
                     </select>
                 </td> -->
-                <td>
+                <!-- <td>
                     <select name="thn" class="form-control">
                         <option selected="selected">Tahun</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
                     </select>
-                </td>
+                </td> -->
                 <td>
                 <a href="{{Route('laporanpendapatan.perbulan')}}" target="_blank" class="btn btn-primary" mb-5>Cetak</a>
                 </td>
@@ -48,12 +48,12 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Pilih Bulan</th>
-                <th>Pilih Tahunnya</th>
-                <th>Aksi</th>
+                <!-- <th>Pilih Bulan</th>
+                <th>Pilih Tahunnya</th> -->
+                <!-- <th>Aksi</th> -->
             </tr>
             <tr>
-                <td>
+                <!-- <td>
                     <select name="bln" class="form-control">
                         <option selected>Pilih Bulan</option>
                         <option value="01"> Januari </option>
@@ -77,7 +77,7 @@
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
                     </select>
-                </td>
+                </td> -->
                 <td><a href="{{Route('laporanpendapatan.perhari')}}" target="_blank" class="btn btn-primary" mb-5>Cetak</a></td>
             </tr>
         </tbody>
