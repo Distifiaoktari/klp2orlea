@@ -6,6 +6,7 @@ use App\Http\Controllers\DataAdminController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\BarbermanController;
 use App\Http\Controllers\LaporanPendapatanController;
+use App\Http\Controllers\LaporanTransaksiController;
 use App\Http\Controllers\PaketBarberController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\DetailPemesananController;
@@ -87,6 +88,10 @@ Route::get('/laporanpendapatan', [LaporanPendapatanController::class, 'index'])-
 Route::get('/laporanpendapatan/perbulan', [LaporanPendapatanController::class, 'pdfbulanan'])->name('laporanpendapatan.perbulan');
 Route::get('/laporanpendapatan/perhari', [LaporanPendapatanController::class, 'pdfharian'])->name('laporanpendapatan.perhari');
 
+//laporan transaksi
+Route::get('/laporantransaksi', [LaporanTransaksiController::class, 'index'])->name('laporantransaksi');
+Route::get('/laporantransaksi/perbulan', [LaporanTransaksiController::class, 'pdfbulanan'])->name('laporantransaksi.perbulan');
+Route::get('/laporantransaksi/perhari', [LaporanTransaksiController::class, 'pdfharian'])->name('laporantransaksi.perhari');
 
 Auth::routes();
 

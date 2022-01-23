@@ -24,7 +24,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i> Transaksi</a></li>
+            <li class="{{request()->is('/') ? 'active' : '' }}"><a href="/laporantransaksi"><i class="fa fa-circle-o"></i> Transaksi</a></li>
             <li class="{{request()->is('/') ? 'active' : '' }}"><a href="/laporanpendapatan"><i class="fa fa-circle-o"></i> Pendapatan</a></li>
           </ul>
         </li>
