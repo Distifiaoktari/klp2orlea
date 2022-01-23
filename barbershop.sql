@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2021 at 08:40 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- Waktu pembuatan: 23 Jan 2022 pada 10.52
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barberman`
+-- Struktur dari tabel `barberman`
 --
 
 CREATE TABLE `barberman` (
@@ -37,7 +37,7 @@ CREATE TABLE `barberman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `barberman`
+-- Dumping data untuk tabel `barberman`
 --
 
 INSERT INTO `barberman` (`id`, `nama_barberman`, `alamat`, `no_hp`, `created_at`, `updated_at`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `barberman` (`id`, `nama_barberman`, `alamat`, `no_hp`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detailpemesanan`
+-- Struktur dari tabel `detailpemesanan`
 --
 
 CREATE TABLE `detailpemesanan` (
@@ -58,10 +58,18 @@ CREATE TABLE `detailpemesanan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `detailpemesanan`
+--
+
+INSERT INTO `detailpemesanan` (`id`, `pemesanan_id`, `paketbarber_id`, `created_at`, `updated_at`) VALUES
+(1, 3, 6, '2022-01-22 07:40:37', '2022-01-22 07:40:37'),
+(2, 4, 5, '2022-01-22 21:57:44', '2022-01-22 21:57:44');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Struktur dari tabel `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -77,7 +85,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -87,7 +95,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -104,7 +112,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paketbarber`
+-- Struktur dari tabel `paketbarber`
 --
 
 CREATE TABLE `paketbarber` (
@@ -117,7 +125,7 @@ CREATE TABLE `paketbarber` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `paketbarber`
+-- Dumping data untuk tabel `paketbarber`
 --
 
 INSERT INTO `paketbarber` (`id`, `nama_paket`, `harga_paket`, `keterangan`, `created_at`, `updated_at`) VALUES
@@ -134,7 +142,7 @@ INSERT INTO `paketbarber` (`id`, `nama_paket`, `harga_paket`, `keterangan`, `cre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Struktur dari tabel `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -146,7 +154,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Struktur dari tabel `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -159,7 +167,7 @@ CREATE TABLE `pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data untuk tabel `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`id`, `nama_pelanggan`, `alamat`, `no_hp`, `created_at`, `updated_at`) VALUES
@@ -169,7 +177,7 @@ INSERT INTO `pelanggan` (`id`, `nama_pelanggan`, `alamat`, `no_hp`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemesanan`
+-- Struktur dari tabel `pemesanan`
 --
 
 CREATE TABLE `pemesanan` (
@@ -182,10 +190,20 @@ CREATE TABLE `pemesanan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id`, `pelanggan_id`, `barberman_id`, `tanggal_order`, `status_bayar`, `created_at`, `updated_at`) VALUES
+(3, 1, 1, '2022-01-22', '1', '2022-01-22 07:39:39', '2022-01-22 07:39:39'),
+(4, 2, 2, '2022-01-22', '1', '2022-01-22 07:49:57', '2022-01-22 07:49:57'),
+(7, 1, 2, '2022-02-17', '1', '2022-01-22 19:34:06', '2022-01-22 19:34:06'),
+(8, 1, 1, '2023-01-26', '1', '2022-01-22 20:23:46', '2022-01-22 20:23:46');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Struktur dari tabel `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -203,7 +221,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -218,7 +236,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -233,13 +251,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
--- Indexes for table `barberman`
+-- Indeks untuk tabel `barberman`
 --
 ALTER TABLE `barberman`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detailpemesanan`
+-- Indeks untuk tabel `detailpemesanan`
 --
 ALTER TABLE `detailpemesanan`
   ADD PRIMARY KEY (`id`),
@@ -247,38 +265,38 @@ ALTER TABLE `detailpemesanan`
   ADD KEY `detailpemesanan_paketbarber_id_index` (`paketbarber_id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `paketbarber`
+-- Indeks untuk tabel `paketbarber`
 --
 ALTER TABLE `paketbarber`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `pelanggan`
+-- Indeks untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pemesanan`
+-- Indeks untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD PRIMARY KEY (`id`),
@@ -286,7 +304,7 @@ ALTER TABLE `pemesanan`
   ADD KEY `pemesanan_barberman_id_index` (`barberman_id`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -294,83 +312,83 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `barberman`
+-- AUTO_INCREMENT untuk tabel `barberman`
 --
 ALTER TABLE `barberman`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `detailpemesanan`
+-- AUTO_INCREMENT untuk tabel `detailpemesanan`
 --
 ALTER TABLE `detailpemesanan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `paketbarber`
+-- AUTO_INCREMENT untuk tabel `paketbarber`
 --
 ALTER TABLE `paketbarber`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pemesanan`
+-- AUTO_INCREMENT untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `detailpemesanan`
+-- Ketidakleluasaan untuk tabel `detailpemesanan`
 --
 ALTER TABLE `detailpemesanan`
   ADD CONSTRAINT `detailpemesanan_paketbarber_id_foreign` FOREIGN KEY (`paketbarber_id`) REFERENCES `paketbarber` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `detailpemesanan_pemesanan_id_foreign` FOREIGN KEY (`pemesanan_id`) REFERENCES `pemesanan` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `pemesanan`
+-- Ketidakleluasaan untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD CONSTRAINT `pemesanan_barberman_id_foreign` FOREIGN KEY (`barberman_id`) REFERENCES `barberman` (`id`) ON DELETE CASCADE,

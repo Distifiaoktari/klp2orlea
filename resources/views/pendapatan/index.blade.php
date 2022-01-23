@@ -1,6 +1,6 @@
 @extends('layout.v_template')
 
-@section('title','Laporan Pendapatan')
+@section('title','Cetak Laporan Pendapatan')
 
 @section('content')
     
