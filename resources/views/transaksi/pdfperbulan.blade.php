@@ -31,8 +31,8 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $bln->new_date }}</td>
-                        <td>{{ $bln->{'count(id)'}; }}</td>                                
-                        <td>Rp - </td>
+                        <td>{{ $bln->{'id'}; }}</td>                                
+                        <td>Rp {{ $bln->{'total'}; }}</td>
                     </tr>
             @endforeach
             </tbody>

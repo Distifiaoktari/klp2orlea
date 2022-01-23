@@ -33,9 +33,9 @@
             @foreach($tanggal as $bln)
             <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{$bln->new_date}}</td>
-                <td>{{$bln->{'count(id)'};}}</td>
-                <td>-</td>
+                <td>{{ $bln->new_date }}</td>
+                <td>{{ $bln->{'id'}; }}</td>                                
+                <td>Rp {{ $bln->{'total'}; }}</td>
                 <td>-</td>
             </tr>
             @endforeach
