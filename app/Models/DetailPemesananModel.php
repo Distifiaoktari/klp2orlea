@@ -14,7 +14,7 @@ class DetailPemesananModel extends Model
     public function allData()
     {
         return DB::table('detailpemesanan')
-        ->select('detailpemesanan.id', 'pemesanan.pelanggan_id','paketbarber.nama_paket')
+        ->select('detailpemesanan.id', 'pemesanan.pelanggan_id','paketbarber.nama_paket', 'paketbarber.harga_paket')
         ->leftJoin('pemesanan', 'pemesanan.id', '=' , 'detailpemesanan.pemesanan_id')
         ->leftJoin('paketbarber', 'paketbarber.id', '=' , 'detailpemesanan.paketbarber_id')
         ->get();
