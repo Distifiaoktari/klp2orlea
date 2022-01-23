@@ -33,10 +33,9 @@ class LaporanPendapatanController extends Controller
 
         
         
-        return view('pendapatan/pdfperbulan', compact('tanggal'));
-        // $data = Siswa::orderBy('nama')->get(); //ubah siswa nya dulu
-        // $pdf = PDF::loadView('pendapatan.pdfperbulan', compact('data'));
-        // return $pdf->stream();
+        // return view('pendapatan/pdfperbulan', compact('tanggal'));
+        $pdf = PDF::loadView('pendapatan.pdfperbulan', compact('tanggal'));
+        return $pdf->stream();
     }
     
     public function pdfharian()
@@ -61,10 +60,8 @@ class LaporanPendapatanController extends Controller
 
         // $banyaktransaksi2 = DB::query('SELECT COUNT ( DISTINCT tanggal_order ) FROM pemesanan');
 
-        return view('pendapatan/pdfperhari', compact('tanggal'));      
-
-        // $data = Siswa::orderBy('nama')->get(); //ubah siswa nya dulu
-        // $pdf = PDF::loadView('pendapatan.pdfperhari', compact('tanggal'));
-        // return $pdf->stream();
+        // return view('pendapatan/pdfperhari', compact('tanggal'));      
+        $pdf = PDF::loadView('pendapatan.pdfperhari', compact('tanggal'));
+        return $pdf->stream();
     }
 }
