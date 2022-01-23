@@ -21,8 +21,8 @@
                             <th scope="col">No</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">ID Transaksi</th>
-                            <th scope="col">ID Pelanggan</th>
-                            <th scope="col">ID Barberman</th>
+                            <th scope="col">Nama Pelanggan</th>
+                            <th scope="col">Nama Barberman</th>
                             <th scope="col">Total</th>
                         </tr>
                         </thead>
@@ -33,8 +33,8 @@
                             <td>{{ $no++ }}</td>                            
                             <td>{{ $tgl->{'tanggal_order'}; }}</td>          
                             <td>{{ $tgl->{'id'}; }}</td>          
-                            <td>{{ $tgl->{'pelanggan_id'}; }}</td>          
-                            <td>{{ $tgl->{'barberman_id'}; }}</td>                             
+                            <td>{{ $tgl->{'pelanggan'}; }}</td>          
+                            <td>{{ $tgl->{'barberman'}; }}</td>                             
                             <td>Rp -</td>
                         </tr>
                         @endforeach

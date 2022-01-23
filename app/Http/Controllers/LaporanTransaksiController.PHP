@@ -41,7 +41,10 @@ class LaporanTransaksiController extends Controller
     {
         $tanggal = DB::table('pemesanan')
         ->where('status_bayar', '=', 1)
-        ->select('tanggal_order','id','pelanggan_id','barberman_id')
+        ->select('pemesanan.tanggal_order AS tanggal_order', 'pemesanan.id AS id', 'pelanggan.nama_pelanggan AS pelanggan','barberman.nama_barberman AS barberman')        
+        ->leftJoin('pelanggan', 'pelanggan.id', '=' , 'pemesanan.pelanggan_id')
+        ->leftJoin('barberman', 'barberman.id', '=' , 'pemesanan.barberman_id')       
+        ->orderBy('tanggal_order')
         ->get()
         ->toArray();
 
